@@ -1,0 +1,80 @@
+/* ギャラリー全体 */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  justify-items: center; /* 中央揃え */
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 150px; /* ← ここで画像の最大サイズを指定 */
+  height: auto; /* 縦横比は保持 */
+  object-fit: contain; /* はみ出し防止 */
+  display: block;
+}
+/* 各アイテム */
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+/* ホバー時のアニメーション */
+.item:hover {
+  transform: scale(1.03);
+}
+
+/* 商品画像 */
+.item img {
+  max-width: 200px; /* ← 最大幅を指定して小さくする */
+  height: auto;
+  object-fit: contain;  /* 重要！ */
+  display: block;       /* 画像周りの余白を消す */
+}
+
+
+/* メーカー名 */
+.maker {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+/* 商品名 */
+.title {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+/* 価格 */
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+}
+
